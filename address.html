@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="referrer" content="no-referrer" />
+    <title>收信地址-桃花源-我的世界服务器(Minecraft)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="icon" href="img/icon.png">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+<div class="spinner-wrapper">
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<script type="text/javascript" src="constant/header.js"></script>
+<header id="header" class="ex-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>收信地址</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="ex-basic-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumbs">
+                    <a href="index.html">首页</a>
+                    <span>&nbsp;&nbsp;>&nbsp;&nbsp;收信地址</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ex-basic-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-container">
+                    <div id="callMe" class="form-1">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="text-container">
+                                        <h2 class="white">填写您的收信地址</h2>
+                                        <ul class="list-unstyled li-space-lg white">
+                                            <li class="media">
+                                                <i class="fas fa-square"></i>
+                                                <div class="media-body">
+                                                    实体贺卡需要填写收信地址，<br>
+                                                    全球任何地区可寄，免邮费。<br>
+                                                    非中国大陆手机请输入地区代码。</div>
+                                            </li>
+                                            <li class="media">
+                                                <i class="fas fa-square"></i>
+                                                <div class="media-body">
+                                                    贺卡通过邮政信件寄出，非快递。<br>
+                                                    建议填写具体门牌号，不容易丢件。<br>
+                                                    一般情况下邮递员都会上门派送，<br>
+                                                    部分小区有邮箱的话可能会投递。</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <form data-toggle="validator" data-focus="false">
+                                        <div id="resultAlert" class="alert d-none mt-3" role="alert"></div>
+                                        <div class="form-group"><input type="text" maxlength="15" class="form-control-input" id="player" name="player" required><label class="label-control" for="player">玩家名字</label>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="form-group"><input type="text" maxlength="15" class="form-control-input" id="name" name="name" required><label class="label-control" for="name">收信名字</label>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="form-group"><input type="text" maxlength="15" class="form-control-input" id="tel" name="tel" required><label class="label-control" for="tel">联系电话</label>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="form-group"><input type="text" maxlength="99" class="form-control-input" id="address" name="address" required><label class="label-control" for="address">收信地址</label>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        
+                                        <div type="button" class="form-group"><button onclick="send()" class="form-control-submit-button">安全提交</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><a class="btn-outline-reg" href="index.html">返回</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ex-basic-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumbs"><a href="index.html">首页</a><span>&nbsp;&nbsp;>&nbsp;&nbsp;收信地址</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="constant/footer.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/morphext.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/scripts.js"></script>
+<script>
+    function send() {
+        const player = $("#player").val().trim();
+        const name = $("#name").val().trim();
+        const tel = $("#tel").val().trim();
+        const address = $("#address").val().trim();
+
+        const submitButton = $(".form-control-submit-button");
+
+        if (!player || !name || !tel || !address) {
+            return;
+        } else {
+            event.preventDefault();
+        }
+
+        const data = {
+            msg: `玩家名: ${player}, 收信名: ${name}, 手机号: ${tel}, 地址: ${address}`
+        };
+
+        submitButton.prop("disabled", true).text("提交中...");
+
+        $.ajax({
+            url: "https://api.ranmc.cc/address",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            dataType: "json"
+        })
+        .done(function (res) {
+            showAlert(res.msg, "success");
+            $("#player,#name,#tel,#address").val("");
+        })
+        .fail(function (xhr) {
+            let msg = "提交失败，请稍后重试";
+            try {
+                const res = JSON.parse(xhr.responseText);
+                if (res.msg) msg = res.msg;
+            } catch (e) {}
+
+            showAlert(msg, "fail");
+        })
+        .always(function () {
+            submitButton.prop("disabled", false).text("安全提交");
+        });
+    }
+    let alertTimer = null;
+
+    function showAlert(msg, type = "success") {
+        const alertBox = $("#resultAlert");
+
+        // 清掉上一次定时器
+        if (alertTimer) {
+            clearTimeout(alertTimer);
+            alertTimer = null;
+        }
+
+        alertBox
+            .removeClass("d-none alert-success alert-danger")
+            .addClass(type === "success" ? "alert-success" : "alert-danger")
+            .text(msg);
+
+        // 3 秒后隐藏
+        alertTimer = setTimeout(() => {
+            alertBox.addClass("d-none");
+        }, 3000);
+    }
+
+</script>
+<script type="text/javascript" src="constant/collect.js"></script>
+</body>
+</html>

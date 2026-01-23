@@ -34,7 +34,7 @@ document.writeln(`    <nav class="navbar navbar-expand-md navbar-dark navbar-cus
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="shop.html" target="_blank">网页商店</a>
+                    <a class="nav-link page-scroll" href="card.html" target="_blank">网页商店</a>
                 </li>
             </ul>
         </div>
