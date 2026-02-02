@@ -24,19 +24,24 @@ document.writeln(`    <nav class="navbar navbar-expand-md navbar-dark navbar-cus
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="index.html#picture">风景欣赏</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="news.html#picture">游戏公告</a>
+                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="news.html" id="navbarDropdown"
-                        role="button" aria-haspopup="true" aria-expanded="false">游戏公告</a>
+                    <a class="nav-link dropdown-toggle page-scroll" href="banlist.html" id="navbarDropdown"
+                        role="button" aria-haspopup="true" aria-expanded="false">封禁列表</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://ranmc-cc.feishu.cn/share/base/form/shrcnIqIzq8bPE6uraxJNOD4age" target="_blank"><span class="item-text">反馈建议</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" href="https://ranmc-cc.feishu.cn/share/base/form/shrcnZwIrgw0ORr9gC6vsAXg5rb" target="_blank"><span class="item-text">举报玩家</span></a>
                         <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="https://ranmc-cc.feishu.cn/wiki/IGskwwltFi0GQPkqjjZcBa0Cn1d?from=from_copylink" target="_blank"><span class="item-text">处理进度</span></a>
+                        <a class="dropdown-item" href="https://ranmc-cc.feishu.cn/share/base/form/shrcnT85aA92J10lZRyayCFAAKe" target="_blank"><span class="item-text">误封申诉</span></a>
                         <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="banlist.html"><span class="item-text">封禁列表</span></a>
+                        <a class="dropdown-item" href="https://ranmc-cc.feishu.cn/wiki/IGskwwltFi0GQPkqjjZcBa0Cn1d?from=from_copylink" target="_blank"><span class="item-text">处理进度</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="card.html" target="_blank">网页商店</a>
+                    <a class="nav-link page-scroll" href="card.html" target="_blank">新年贺卡</a>
                 </li>
             </ul>
         </div>
