@@ -51,11 +51,7 @@ function InitMainTable() {
       { field: 'banTime', title: '封禁时间', align: 'center', sortable: true },
       { field: 'releaseTime', title: '解禁时间', align: 'center' },
       { field: 'operator', title: '操作人', align: 'center' }
-    ],
-
-    onLoadError: function () {
-      //alert("数据加载失败！");
-    }
+    ]
   });
 }
 
