@@ -54,7 +54,7 @@ function InitMainTable() {
     ],
 
     onLoadError: function () {
-      alert("数据加载失败！");
+      //alert("数据加载失败！");
     }
   });
 }
