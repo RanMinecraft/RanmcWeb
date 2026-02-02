@@ -28,9 +28,9 @@ document.writeln(`    <nav class="navbar navbar-expand-md navbar-dark navbar-cus
                     <a class="nav-link dropdown-toggle page-scroll" href="news.html" id="navbarDropdown"
                         role="button" aria-haspopup="true" aria-expanded="false">游戏公告</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://geekflow.feishu.cn/share/base/form/shrcnsVPuHdNd0P50RasNLGxYKd" target="_blank"><span class="item-text">举报玩家</span></a>
+                        <a class="dropdown-item" href="https://ranmc-cc.feishu.cn/share/base/form/shrcnZwIrgw0ORr9gC6vsAXg5rb" target="_blank"><span class="item-text">举报玩家</span></a>
                         <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="https://geekflow.feishu.cn/wiki/Ycw0wRLIWijoq2kswlzcN0QhnAh?from=from_copylink" target="_blank"><span class="item-text">处理进度</span></a>
+                        <a class="dropdown-item" href="https://ranmc-cc.feishu.cn/wiki/IGskwwltFi0GQPkqjjZcBa0Cn1d?from=from_copylink" target="_blank"><span class="item-text">处理进度</span></a>
                         <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" href="banlist.html"><span class="item-text">封禁列表</span></a>
                     </div>
