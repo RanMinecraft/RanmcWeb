@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="referrer" content="no-referrer" />
+    <title>桃花源-我的世界服务器(Minecraft)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="icon" href="img/icon.png">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+<div class="spinner-wrapper">
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<script type="text/javascript" src="constant/header.js"></script>
+<header id="header" class="ex-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 id="title"></h1>
+            </div>
+        </div>
+    </div>
+</header>
+<div>
+    <iframe id="iframe" style="width: 100%;height: 1500px;"></iframe>
+</div>
+<div class="ex-basic-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumbs">
+                    <a href="index.html">首页</a>
+                    <span id="title2"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="constant/footer.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/morphext.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/scripts.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const params = new URLSearchParams(window.location.search);
+      const type = params.get('type');
+      const iframe = document.getElementById('iframe');
+      const title = document.getElementById('title');
+      const title2 = document.getElementById('title2');
+      if (type === "report") {
+        iframe.src = "https://ranmc-cc.feishu.cn/share/base/form/shrcnZwIrgw0ORr9gC6vsAXg5rb";
+        title.textContent = "举报玩家";
+      }
+      if (type === "bug") {
+        iframe.src = "https://ranmc-cc.feishu.cn/share/base/form/shrcnIqIzq8bPE6uraxJNOD4age";
+        title.textContent = "反馈建议";
+      }
+      if (type === "appeal") {
+        iframe.src = "https://ranmc-cc.feishu.cn/share/base/form/shrcnT85aA92J10lZRyayCFAAKe";
+        title.textContent = "误封申诉";
+      }
+      if (type === "progress") {
+        iframe.src = "https://ranmc-cc.feishu.cn/wiki/IGskwwltFi0GQPkqjjZcBa0Cn1d?table=tblCkf3nbeqsdHgo&view=vewP2B92zv";
+        title.textContent = "处理进度";
+      }
+      title2.innerHTML = "&nbsp;&nbsp;>&nbsp;&nbsp;" + title.textContent;
+      document.title = title.textContent + '-桃花源-我的世界服务器(Minecraft)';
+    });
+</script>
+<script type="text/javascript" src="constant/collect.js"></script>
+</body>
+</html>
