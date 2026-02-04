@@ -1700,21 +1700,23 @@ input[type='checkbox'] {
 /**********************************/
 /*     19. Back To Top Button     */
 /**********************************/
-a.back-to-top {
+a.back-to-top{
 	font-size:22px;
 	color:#fff;
 	text-decoration:none;
 	text-align:center;
 	line-height:2.625rem;
-	position: fixed;
-	z-index: 999;
-	right: 0.75rem;
-	bottom: 0.75rem;
-	display: none;
-	width: 2.625rem;
-	height: 2.625rem;
-	border-radius: 1.875rem;
-	background-size: 1.125rem 1.125rem;
+	position:fixed;
+	z-index:999;
+	right:0.75rem;
+	bottom:0.75rem;
+	display:none;
+	width:2.625rem;
+	height:2.625rem;
+	border-radius:
+	1.875rem;
+	background:#ff80ab no-repeat center 47%;
+	background-size:1.125rem 1.125rem;
 }
 
 a:hover.back-to-top {
