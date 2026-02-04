@@ -2522,3 +2522,8 @@ a:hover.back-to-top {
     color: #777;
     text-align: right;
   }
+
+.fixed-table-loading {
+    font-size: 1px;
+    line-height: 1.5;
+}
