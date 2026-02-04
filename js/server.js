@@ -4,6 +4,10 @@ fetch("https://api.ranmc.cc/chart?type=tps")
   .then(res => {
     if (res.code !== 200 || !res.data) return;
 
+    const loading = document.getElementById('onlineLoading');
+    if (loading) {
+        loading.remove();
+    }
     // 解析数据
     const data = res.data.reverse(); // 时间顺序从早到晚
     const times = data.map(e => e.Time);

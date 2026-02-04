@@ -31,6 +31,10 @@ fetch("https://api.ranmc.cc/chart?type=status")
 $(function() {
   $.get('https://api.ranmc.cc/chart?type=season', function(res) {
     if (res.code === 200 && res.data) {
+      const loading = document.getElementById('seasonLoading');
+      if (loading) {
+          loading.remove();
+      }
       const labels = Object.keys(res.data);
       const data = Object.values(res.data);
       const ctx = document.getElementById('seasonChart').getContext('2d');
@@ -72,6 +76,11 @@ fetch("https://api.ranmc.cc/chart?type=tps")
   .then(res => res.json())
   .then(res => {
     if (res.code !== 200 || !res.data) return;
+
+    const loading = document.getElementById('tpsLoading');
+    if (loading) {
+        loading.remove();
+    }
 
     // 解析数据
     const data = res.data.reverse(); // 时间顺序从早到晚
@@ -145,6 +154,11 @@ fetch("https://api.ranmc.cc/chart?type=pvp")
   .then(res => res.json())
   .then(res => {
     if (res.code !== 200 || !res.data) return;
+
+    const loading = document.getElementById('pvpLoading');
+    if (loading) {
+        loading.remove();
+    }
 
     const labels = Object.keys(res.data);
     const data = Object.values(res.data);
