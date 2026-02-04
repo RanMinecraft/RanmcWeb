@@ -2526,3 +2526,9 @@ a:hover.back-to-top {
   .button-group a {
     text-decoration: none;
   }
+
+  .grid {
+    max-width: 1164px;
+    margin: 30px auto;
+  }
+
