@@ -25,10 +25,10 @@ document.writeln(`    <nav class="navbar navbar-expand-md navbar-dark navbar-cus
                     <a class="nav-link page-scroll" href="index.html#picture">风景欣赏</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="news.html#picture">游戏公告</a>
+                    <a class="nav-link page-scroll" href="news.html#header">游戏公告</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="banlist.html" id="navbarDropdown"
+                    <a class="nav-link dropdown-toggle page-scroll" href="banlist.html#header" id="navbarDropdown"
                         role="button" aria-haspopup="true" aria-expanded="false">封禁列表</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="https://ranmc-cc.feishu.cn/share/base/form/shrcnIqIzq8bPE6uraxJNOD4age" target="_blank"><span class="item-text">反馈建议</span></a>
