@@ -1701,6 +1701,11 @@ input[type='checkbox'] {
 /*     19. Back To Top Button     */
 /**********************************/
 a.back-to-top {
+	font-size:22px;
+	color:#fff;
+	text-decoration:none;
+	text-align:center;
+	line-height:2.625rem;
 	position: fixed;
 	z-index: 999;
 	right: 0.75rem;
@@ -1709,9 +1714,7 @@ a.back-to-top {
 	width: 2.625rem;
 	height: 2.625rem;
 	border-radius: 1.875rem;
-	background: #ff80ab url("https://img/01.sogoucdn.com/app/a/100520146/0B586A7D085D120376A66E886388F822") no-repeat center 47%;
 	background-size: 1.125rem 1.125rem;
-	text-indent: -9999px;
 }
 
 a:hover.back-to-top {
