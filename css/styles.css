@@ -2523,7 +2523,6 @@ a:hover.back-to-top {
     text-align: right;
   }
 
-.fixed-table-loading {
-    font-size: 1px;
-    line-height: 1.5;
-}
+  .button-group a {
+    text-decoration: none;
+  }

@@ -21,9 +21,13 @@
     });
 
     var $grid = $('.grid').isotope({
-        // options
         itemSelector: '.element-item',
         layoutMode: 'fitRows'
+    });
+    
+    $('.filters-button-group').on( 'click', 'a', function() {
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
     });
     
 })(jQuery);

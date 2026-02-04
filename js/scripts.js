@@ -30,12 +30,6 @@
         $(".navbar-collapse").collapse('hide');
     });
     
-    // filter items on button click
-    $('.filters-button-group').on( 'click', 'a', function() {
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-    });
-    
     // change is-checked class on buttons
     $('.button-group').each( function( i, buttonGroup ) {
         var $buttonGroup = $( buttonGroup );
