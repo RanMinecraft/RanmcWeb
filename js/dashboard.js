@@ -7,12 +7,28 @@ fetch("https://api.ranmc.cc/chart?type=status")
     const container = document.getElementById("serverStatus");
     container.innerHTML = "<h3>服务器线路状态</h3>";
 
-    for (const [line, online] of Object.entries(res.data)) {
+    for (const item of res.data) {
       const div = document.createElement("div");
       div.className = "status-item";
+
+      // 选择延迟颜色
+      let delayColor = "";
+      if (!item.status) {
+        delayColor = "gray"; // 离线显示灰色
+      } else if (item.delay <= 200) {
+        delayColor = "green";
+      } else if (item.delay <= 300) {
+        delayColor = "orange";
+      } else {
+        delayColor = "red";
+      }
+
       div.innerHTML = `
-        <span>${line}</span>
-        <span>${online ? "🟢 在线" : "🔴 离线"}</span>
+        <span>${item.host}</span>
+        <span>
+          ${item.status ? "🟢" : "🔴"} 
+          ${item.status ? `<span style="color:${delayColor}">${item.delay} ms</span>` : "离线"}
+        </span>
       `;
       container.appendChild(div);
     }
