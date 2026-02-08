@@ -10,9 +10,9 @@ fetch("https://api.ranmc.cc/chart?type=tps")
     }
     // 解析数据
     const data = res.data.reverse(); // 时间顺序从早到晚
-    const times = data.map(e => e.Time);
-    const tpsValues = data.map(e => parseFloat(e.Value));
-    const playerValues = data.map(e => parseInt(e.Player));
+    const times = data.map(e => e.time);
+    const tpsValues = data.map(e => parseFloat(e.value));
+    const playerValues = data.map(e => parseInt(e.player));
 
     const ctx = document.getElementById("onlineChart").getContext("2d");
     new Chart(ctx, {

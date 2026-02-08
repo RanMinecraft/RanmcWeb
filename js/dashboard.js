@@ -15,9 +15,9 @@ fetch("https://api.ranmc.cc/chart?type=status")
       let delayColor = "";
       if (!item.status) {
         delayColor = "gray"; // 离线显示灰色
-      } else if (item.delay <= 200) {
+      } else if (item.latency <= 200) {
         delayColor = "green";
-      } else if (item.delay <= 300) {
+      } else if (item.latency <= 300) {
         delayColor = "orange";
       } else {
         delayColor = "red";
@@ -27,7 +27,7 @@ fetch("https://api.ranmc.cc/chart?type=status")
         <span>${item.host}</span>
         <span>
           ${item.status ? "🟢" : "🔴"} 
-          ${item.status ? `<span style="color:${delayColor}">${item.delay} ms</span>` : "离线"}
+          ${item.status ? `<span style="color:${delayColor}">${item.latency} ms</span>` : "离线"}
         </span>
       `;
       container.appendChild(div);
@@ -100,9 +100,9 @@ fetch("https://api.ranmc.cc/chart?type=tps")
 
     // 解析数据
     const data = res.data.reverse(); // 时间顺序从早到晚
-    const times = data.map(e => e.Time);
-    const tpsValues = data.map(e => parseFloat(e.Value));
-    const playerValues = data.map(e => parseInt(e.Player));
+    const times = data.map(e => e.time);
+    const tpsValues = data.map(e => parseFloat(e.value));
+    const playerValues = data.map(e => parseInt(e.player));
 
     const ctx = document.getElementById("tpsChart").getContext("2d");
     new Chart(ctx, {
