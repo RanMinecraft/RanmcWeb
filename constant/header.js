@@ -41,7 +41,7 @@ document.writeln(`    <nav class="navbar navbar-expand-md navbar-dark navbar-cus
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="card.html" target="_blank">新年贺卡</a>
+                    <a class="nav-link" href="card.html" target="_blank">周边商店</a>
                 </li>
             </ul>
         </div>
