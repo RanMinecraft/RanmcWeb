@@ -15,9 +15,9 @@ fetch("https://api.ranmc.cc/chart?type=status")
       let delayColor = "";
       if (!item.status) {
         delayColor = "gray"; // 离线显示灰色
-      } else if (item.latency <= 200) {
+      } else if (item.latency <= 100) {
         delayColor = "green";
-      } else if (item.latency <= 300) {
+      } else if (item.latency <= 200) {
         delayColor = "orange";
       } else {
         delayColor = "red";
