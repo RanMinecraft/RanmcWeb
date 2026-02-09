@@ -20,7 +20,7 @@
 <script type="text/javascript" src="constant/header.js"></script>
 <header id="header" style="background-color: #153e52;padding-top: 7.875rem;"></header>
 <div>
-    <iframe id="iframe" style="width: 100%;height: 1500px;" scrolling="no"></iframe>
+    <iframe id="iframe" style="width: 100%;height: 1600px;" scrolling="no"></iframe>
 </div>
 <div class="ex-basic-1">
     <div class="container">
@@ -46,19 +46,16 @@
       const title = document.getElementById('title');
       let text = "";
       if (type === "report") {
-        iframe.src = "https://ranmc-cc.feishu.cn/share/base/form/shrcnZwIrgw0ORr9gC6vsAXg5rb";
+        iframe.src = "https://ranmc-cc.feishu.cn/share/base/form/shrcnsbovyxLVbW0eoPtBkEHkYb";
         text = "举报玩家";
-      }
-      if (type === "bug") {
-        iframe.src = "https://ranmc-cc.feishu.cn/share/base/form/shrcnIqIzq8bPE6uraxJNOD4age";
+      } else if (type === "bug") {
+        iframe.src = "https://ranmc-cc.feishu.cn/share/base/form/shrcnhsTiH6K7VE9D3tyeWq9kYg";
         text = "反馈建议";
-      }
-      if (type === "appeal") {
-        iframe.src = "https://ranmc-cc.feishu.cn/share/base/form/shrcnT85aA92J10lZRyayCFAAKe";
+      } else if (type === "appeal") {
+        iframe.src = "https://ranmc-cc.feishu.cn/share/base/form/shrcnXBrQeNCbCThu1j4rZ0QwUb";
         text = "误封申诉";
-      }
-      if (type === "progress") {
-        iframe.src = "https://ranmc-cc.feishu.cn/wiki/IGskwwltFi0GQPkqjjZcBa0Cn1d?table=tblCkf3nbeqsdHgo&view=vewP2B92zv";
+      } else if (type === "progress") {
+        iframe.src = "https://ranmc-cc.feishu.cn/share/base/dashboard/shrcn7CWJB2Q38L6dIstPMeLv2f";
         text = "处理进度";
       }
       title.innerHTML = "&nbsp;&nbsp;>&nbsp;&nbsp;" + text;
