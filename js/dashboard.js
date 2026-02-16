@@ -87,24 +87,26 @@ $(function() {
   });
 });
 
-// TPS 与在线玩家变化趋势
+// TPS / MSPT / 在线玩家趋势
 fetch("https://api.ranmc.cc/chart?type=tps")
   .then(res => res.json())
   .then(res => {
     if (res.code !== 200 || !res.data) return;
 
     const loading = document.getElementById('tpsLoading');
-    if (loading) {
-        loading.remove();
-    }
+    if (loading) loading.remove();
 
-    // 解析数据
-    const data = res.data.reverse(); // 时间顺序从早到晚
-    const times = data.map(e => e.time);
-    const tpsValues = data.map(e => parseFloat(e.value));
-    const playerValues = data.map(e => parseInt(e.player));
+    // 时间顺序从早到晚
+    const data = res.data.reverse();
+
+    // 解析数据（保留 1 位小数）
+    const times = data.map(e => `${e.time}`);
+    const tpsValues = data.map(e => Number(Number(e.tps).toFixed(1)));
+    const msptValues = data.map(e => Number(Number(e.mspt).toFixed(1)));
+    const playerValues = data.map(e => Number(e.player));
 
     const ctx = document.getElementById("tpsChart").getContext("2d");
+
     new Chart(ctx, {
       type: "line",
       data: {
@@ -116,6 +118,15 @@ fetch("https://api.ranmc.cc/chart?type=tps")
             yAxisID: "y1",
             borderColor: "rgba(54,162,235,1)",
             backgroundColor: "rgba(54,162,235,0.3)",
+            tension: 0.3,
+            fill: false
+          },
+          {
+            label: "MSPT",
+            data: msptValues,
+            yAxisID: "y3",
+            borderColor: "rgba(75,192,192,1)",
+            backgroundColor: "rgba(75,192,192,0.3)",
             tension: 0.3,
             fill: false
           },
@@ -140,13 +151,27 @@ fetch("https://api.ranmc.cc/chart?type=tps")
             position: "left",
             title: { display: true, text: "TPS" },
             min: 0,
-            max: 25
+            max: 20,
+            ticks: {
+              stepSize: 5,
+              callback: value => Number(value).toFixed(1)
+            }
           },
           y2: {
             type: "linear",
             position: "right",
             title: { display: true, text: "玩家数" },
             grid: { drawOnChartArea: false }
+          },
+          y3: {
+            type: "linear",
+            position: "right",
+            title: { display: true, text: "MSPT" },
+            grid: { drawOnChartArea: false },
+            offset: true,
+            ticks: {
+              callback: value => Number(value).toFixed(1)
+            }
           },
           x: {
             title: { display: true, text: "时间" }
@@ -155,14 +180,27 @@ fetch("https://api.ranmc.cc/chart?type=tps")
         plugins: {
           title: {
             display: true,
-            text: "TPS 与在线玩家变化趋势"
+            text: "在线玩家及服务器性能趋势"
           },
           legend: {
             position: "top"
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                if (context.dataset.label === "TPS" || context.dataset.label === "MSPT") {
+                  return `${context.dataset.label}: ${Number(context.raw).toFixed(1)}`;
+                }
+                return `${context.dataset.label}: ${context.raw}`;
+              }
+            }
           }
         }
       }
     });
+  })
+  .catch(err => {
+    console.error("图表数据加载失败:", err);
   });
 
 // PVP 段位统计
