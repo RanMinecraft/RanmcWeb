@@ -14,7 +14,7 @@ fetch("https://api.ranmc.cc/chart?type=status")
       // 选择延迟颜色
       let delayColor = "";
       if (!item.status) {
-        delayColor = "gray";
+        delayColor = "#8B0000";
       } else if (item.latency <= 150) {
         delayColor = "green";
       } else if (item.latency <= 300) {
@@ -27,7 +27,9 @@ fetch("https://api.ranmc.cc/chart?type=status")
         <span>${item.host}</span>
         <span>
           ${item.status ? "🟢" : "🔴"} 
-          ${item.status ? `<span style="color:${delayColor}">${item.latency} ms</span>` : "离线"}
+          <span style="color:${delayColor}">
+            ${item.status ? item.latency + " ms" : "离线"}
+          </span>
         </span>
       `;
       container.appendChild(div);
