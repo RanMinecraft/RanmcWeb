@@ -89,7 +89,7 @@ $(function() {
   });
 });
 
-// TPS / MSPT / 在线玩家趋势
+// TPS / 在线玩家趋势
 fetch("https://api.ranmc.cc/chart?type=tps")
   .then(res => res.json())
   .then(res => {
@@ -104,7 +104,6 @@ fetch("https://api.ranmc.cc/chart?type=tps")
     // 解析数据（保留 1 位小数）
     const times = data.map(e => `${e.time}`);
     const tpsValues = data.map(e => Number(Number(e.tps).toFixed(1)));
-    const msptValues = data.map(e => Number(Number(e.mspt).toFixed(1)));
     const playerValues = data.map(e => Number(e.player));
 
     const ctx = document.getElementById("tpsChart").getContext("2d");
@@ -120,15 +119,6 @@ fetch("https://api.ranmc.cc/chart?type=tps")
             yAxisID: "y1",
             borderColor: "rgba(54,162,235,1)",
             backgroundColor: "rgba(54,162,235,0.3)",
-            tension: 0.3,
-            fill: false
-          },
-          {
-            label: "MSPT",
-            data: msptValues,
-            yAxisID: "y3",
-            borderColor: "rgba(75,192,192,1)",
-            backgroundColor: "rgba(75,192,192,0.3)",
             tension: 0.3,
             fill: false
           },
@@ -165,16 +155,6 @@ fetch("https://api.ranmc.cc/chart?type=tps")
             title: { display: true, text: "玩家数" },
             grid: { drawOnChartArea: false }
           },
-          y3: {
-            type: "linear",
-            position: "right",
-            title: { display: true, text: "MSPT" },
-            grid: { drawOnChartArea: false },
-            offset: true,
-            ticks: {
-              callback: value => Number(value).toFixed(1)
-            }
-          },
           x: {
             title: { display: true, text: "时间" }
           }
@@ -190,7 +170,7 @@ fetch("https://api.ranmc.cc/chart?type=tps")
           tooltip: {
             callbacks: {
               label: function(context) {
-                if (context.dataset.label === "TPS" || context.dataset.label === "MSPT") {
+                if (context.dataset.label === "TPS") {
                   return `${context.dataset.label}: ${Number(context.raw).toFixed(1)}`;
                 }
                 return `${context.dataset.label}: ${context.raw}`;
