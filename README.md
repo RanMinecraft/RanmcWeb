@@ -4,8 +4,6 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/ranminecraft/Ranmcweb)
 ![GitHub deployments](https://img.shields.io/github/deployments/ranminecraft/Ranmcweb/github-pages)
 
-> 🏔️ 我的世界「桃花源」服务器官方网站
-
 ## 📋 简介
 
 桃花源服务器官方网站，为玩家提供服务器信息展示、封禁列表查询、数据看板、游戏公告、客服反馈等功能。
