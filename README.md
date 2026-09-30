@@ -61,7 +61,7 @@ RanmcWeb/
 ├── address.html                # 服务器地址
 ├── check.html                  # 玩家查询
 ├── region.html                 # 周目记录
-├── shop.html                   # 商店
+├── shop.html                   # 礼包商店
 ├── card.html                   # 名片
 ├── halloween.html              # 万圣节活动
 ├── build.js                    # 构建脚本

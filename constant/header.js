@@ -40,6 +40,9 @@ document.writeln(`    <nav class="navbar navbar-expand-md navbar-dark navbar-cus
                         <a class="dropdown-item" href="service.html?type=progress#header"><span class="item-text">处理进度</span></a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">礼包商店</a>
+                </li>
             </ul>
         </div>
 
