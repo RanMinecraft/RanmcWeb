@@ -41,7 +41,7 @@ document.writeln(`    <nav class="navbar navbar-expand-md navbar-dark navbar-cus
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="shop.html">礼包商店</a>
+                    <a class="nav-link" href="https://u.minepay.top/#/shop?id=101" target="_blank">礼包商店</a>
                 </li>
             </ul>
         </div>
