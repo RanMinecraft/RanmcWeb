@@ -17,13 +17,13 @@
             display: block;
         }
         @media (max-width: 991.98px) {
-            #shop-iframe {
-                height: 1230px;
+            html, body {
+                height: 100%;
+                overflow: hidden;
             }
-        }
-        @media (max-width: 767.98px) {
             #shop-iframe {
-                height: 1440px;
+                height: calc(100vh - 7.875rem);
+                height: calc(100dvh - 7.875rem);
             }
         }
     </style>
@@ -38,7 +38,7 @@
 <script type="text/javascript" src="constant/header.js"></script>
 <header id="header" style="background-color: #153e52;padding-top: 7.875rem;"></header>
 <div>
-    <iframe id="shop-iframe" src="https://u.minepay.top/#/shop?id=101" scrolling="no"></iframe>
+    <iframe id="shop-iframe" src="https://u.minepay.top/#/shop?id=101"></iframe>
 </div>
 <div class="ex-basic-1">
     <div class="container">
