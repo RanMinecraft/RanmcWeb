@@ -19,7 +19,7 @@
 </div>
 <script type="text/javascript" src="constant/header.js"></script>
 <header id="header" class="ex-header service-header">
-    <div class="container">
+    <div id="header-content" class="container">
         <div class="row">
             <div class="col-lg-12">
                 <h1>服务中心</h1>
@@ -148,6 +148,8 @@
         document.getElementById('iframe-breadcrumbs').style.display = 'block';
         document.getElementById('type-selector').style.display = 'none';
         document.getElementById('type-selector-cards').style.display = 'none';
+        document.getElementById('header-content').style.display = 'none';
+        document.getElementById('header').classList.add('service-header-no-title');
         title.innerHTML = '&nbsp;&nbsp;>&nbsp;&nbsp;<a href="service.html#header">服务中心</a>&nbsp;&nbsp;>&nbsp;&nbsp;' + text;
         document.title = text + '-桃花源-我的世界服务器(Minecraft)';
       } else {
@@ -155,15 +157,27 @@
         document.getElementById('iframe-breadcrumbs').style.display = 'none';
         document.getElementById('type-selector').style.display = 'block';
         document.getElementById('type-selector-cards').style.display = 'block';
+        document.getElementById('header-content').style.display = 'block';
+        document.getElementById('header').classList.remove('service-header-no-title');
         document.title = '服务中心-桃花源-我的世界服务器(Minecraft)';
       }
     });
 </script>
 <style>
+    .service-header-no-title {
+        padding-top: 7.875rem;
+        padding-bottom: 0;
+        background-color: #153e52;
+    }
     @media (max-width: 767.98px) {
         .service-header {
             padding-top: 5rem;
             padding-bottom: 2.5rem;
+        }
+        .service-header-no-title {
+            padding-top: 4.5rem;
+            padding-bottom: 0;
+            background-color: transparent;
         }
     }
     #type-selector-cards .service-cards-row {
