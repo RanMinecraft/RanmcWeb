@@ -16,7 +16,21 @@
             border: 0;
             display: block;
         }
-        @media (max-width: 991.98px) {
+        .shop-header {
+            padding-top: 7.875rem;
+            background-color: #153e52;
+        }
+        @media (max-width: 767.98px) {
+            .shop-header {
+                padding-top: 4.5rem;
+                background-color: transparent;
+            }
+            #shop-iframe {
+                height: calc(100vh - 4.5rem);
+                height: calc(100dvh - 4.5rem);
+            }
+        }
+        @media (max-width: 991.98px) and (min-width: 768px) {
             html, body {
                 height: 100%;
                 overflow: hidden;
@@ -36,7 +50,7 @@
     </div>
 </div>
 <script type="text/javascript" src="constant/header.js"></script>
-<header id="header" style="background-color: #153e52;padding-top: 7.875rem;"></header>
+<header id="header" class="shop-header"></header>
 <div>
     <iframe id="shop-iframe" src="https://u.minepay.top/#/shop?id=101"></iframe>
 </div>
