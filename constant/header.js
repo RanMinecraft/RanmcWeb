@@ -24,12 +24,16 @@ document.writeln(`    <nav class="navbar navbar-expand-md navbar-dark navbar-cus
                 <li class="nav-item">
                     <a class="nav-link" href="index.html#picture">风景欣赏</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="news.html#header">游戏公告</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="news.html#header" id="navbarDropdown"
+                        role="button" aria-haspopup="true" aria-expanded="false">游戏公告</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="banlist.html#header"><span class="item-text">封禁列表</span></a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="banlist.html#header" id="navbarDropdown"
-                        role="button" aria-haspopup="true" aria-expanded="false">封禁列表</a>
+                    <a class="nav-link dropdown-toggle" href="service.html#header" id="navbarDropdown"
+                        role="button" aria-haspopup="true" aria-expanded="false">服务中心</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="service.html?type=bug#header"><span class="item-text">反馈建议</span></a>
                         <div class="dropdown-items-divide-hr"></div>
@@ -38,6 +42,8 @@ document.writeln(`    <nav class="navbar navbar-expand-md navbar-dark navbar-cus
                         <a class="dropdown-item" href="service.html?type=appeal#header"><span class="item-text">误封申诉</span></a>
                         <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" href="service.html?type=progress#header"><span class="item-text">处理进度</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="service.html?type=forgot#header"><span class="item-text">忘记密码</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
