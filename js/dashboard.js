@@ -199,6 +199,25 @@ fetch("https://api.ranmc.cc/chart?type=pvp")
     const labels = Object.keys(res.data);
     const data = Object.values(res.data);
 
+    // 段位颜色（参考游戏内赛季段位称号颜色，浅色段位适当加深以便白色背景看清）
+    const pvpRanks = [
+      { key: "巅峰", color: "#FF1744" },
+      { key: "翡翠", color: "#66CC00" },
+      { key: "钻石", color: "#00C8C8" },
+      { key: "黄金", color: "#FFAA00" },
+      { key: "铁锭", color: "#5555FF" },
+      { key: "粗铜", color: "#800000" },
+      { key: "未定级", color: "#FFFFFF" }
+    ];
+    const getPvpColor = label => {
+      const rank = pvpRanks.find(r => label.includes(r.key));
+      return rank ? rank.color : "#4BC0C0";
+    };
+    const toRgba = (hex, alpha) => {
+      const n = parseInt(hex.slice(1), 16);
+      return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${alpha})`;
+    };
+
     const ctx = document.getElementById("pvpChart").getContext("2d");
     new Chart(ctx, {
       type: "bar",
@@ -207,8 +226,8 @@ fetch("https://api.ranmc.cc/chart?type=pvp")
         datasets: [{
           label: "人数",
           data: data,
-          backgroundColor: "rgba(75,192,192,0.6)",
-          borderColor: "rgba(75,192,192,1)",
+          backgroundColor: labels.map(l => toRgba(getPvpColor(l), 0.6)),
+          borderColor: labels.map(l => getPvpColor(l)),
           borderWidth: 1
         }]
       },
@@ -220,12 +239,18 @@ fetch("https://api.ranmc.cc/chart?type=pvp")
             title: { display: true, text: "人数" }
           },
           x: {
-            title: { display: true, text: "段位" }
+            title: { display: true, text: "段位" },
+            ticks: { color: ctx2 => getPvpColor(labels[ctx2.index]) }
           }
         },
         plugins: {
           legend: { display: false },
-          title: { display: true, text: "PVP 段位统计" }
+          title: { display: true, text: "PVP 段位统计" },
+          tooltip: {
+            callbacks: {
+              label: ctx2 => "人数: " + ctx2.parsed.y
+            }
+          }
         }
       }
     });
